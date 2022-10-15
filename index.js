@@ -41,6 +41,23 @@ const drawForms = {
       {x: x0, y: y0, contributor: contributor},
       {x: x1, y: y1, contributor: contributor},
     ])
+  },
+  "quadrilateral": (points, contributor) => {
+    const { x0, y0, x1, y1, x2, y2, x3, y3 } = points
+    ctx.beginPath()
+    ctx.moveTo(x0, y0)
+    ctx.lineTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.lineTo(x3, y3)
+    ctx.lineTo(x0, y0)
+    ctx.stroke()
+
+    drawnPoints.push(...[
+      {x: x0, y: y0, contributor: contributor},
+      {x: x1, y: y1, contributor: contributor},
+      {x: x2, y: y2, contributor: contributor},
+      {x: x2, y: y2, contributor: contributor},
+    ])
   }
 }
 //////////////////////////////////////////////////////////
