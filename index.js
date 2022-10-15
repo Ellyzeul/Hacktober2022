@@ -17,6 +17,7 @@ document.querySelector("#theme-changer").addEventListener('click', event => {
   event.target.textContent = isLight ? "Escuro" : "Claro"
 })
 
+// API do GitHub aqui ////////////////////////////////////
 const pushContributor = (contributorName) => {
   fetch(`https://api.github.com/users/${contributorName}`)
     .then(response => response.json())
@@ -25,6 +26,7 @@ const pushContributor = (contributorName) => {
       githubPage: response.html_url
     })
 }
+//////////////////////////////////////////////////////////
 
 // Formas geométricas aqui ///////////////////////////////
 const drawForms = {
