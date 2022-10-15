@@ -1,0 +1,76 @@
+:root, :root.dark {
+  --body-bg-color: rgb(28, 28, 41);
+  --theme-changer-bg-color: rgb(41, 41, 56);
+  --font--color: white;
+  --transition-time: 125ms;
+}
+:root.light {
+  --body-bg-color: rgb(217, 217, 242);
+  --theme-changer-bg-color: rgb(174, 174, 191);
+  --font--color: black;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--body-bg-color);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--font--color);
+}
+
+#theme-changer {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: none;
+  background-color: var(--theme-changer-bg-color);
+  color: var(--font--color);
+  font-weight: bold;
+  transition: var(--transition-time);
+}
+#theme-changer:hover {
+  cursor: pointer;
+  opacity: 0.25;
+  transition: var(--transition-time);
+}
+
+canvas {
+  background-color: white;
+  border: 1px solid black;
+}
+
+#contributors-list {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 400px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  overflow: hidden auto;
+}
+
+.contributor-row-display {
+  width: 95%;
+  min-height: 100px;
+  margin-top: 10px;
+  background-color: var(--theme-changer-bg-color);
+  display: block;
+  text-decoration: none;
+  color: var(--font--color);
+  display: grid;
+  grid-template-columns: 25% 75%;
+  place-items: center;
+  border-radius: 3px;
+}
+.contributor-row-display > img {
+  width: 85%;
+  border-radius: 3px;
+}
