@@ -1,26 +1,10 @@
 [
   {
     "form": "line",
-    "x0": 200,
-    "y0": 200,
-    "x1": 700,
-    "y1": 300,
+    "x0": 2,
+    "y0": 2,
+    "x1": 10,
+    "y1": 10,
     "contributor": "Ellyzeul"
-  },
-  {
-    "form": "line",
-    "x0": 400,
-    "y0": 200,
-    "x1": 690,
-    "y1": 300,
-    "contributor": "yingyangtongxue"
-  },
-  {
-    "form": "line",
-    "x0": 300,
-    "y0": 200,
-    "x1": 695,
-    "y1": 300,
-    "contributor": "leandrohl"
   }
 ]
