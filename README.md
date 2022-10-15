@@ -24,16 +24,29 @@ Como já diriam desenvolvedores mais experientes: a melhor documentação é o p
   <tbody>
     <tr>
       <td>Linha</td>
-      <td><pre>
-{
+      <td><pre>{
   "form": "line",
   "x0": 2,
   "y0": 2,
   "x1": 10,
   "y1": 10,
   "contributor": "Ellyzeul"
-}
-      </pre></td>
+}</pre></td>
+    </tr>
+    <tr>
+      <td>Quadrilátero</td>
+      <td><pre>{
+  "form": "quadrilateral",
+  "x0": 100,
+  "y0": 100,
+  "x1": 100,
+  "y1": 150,
+  "x2": 200,
+  "y2": 200,
+  "x3": 150,
+  "y3": 100,
+  "contributor": "yingyangtongxue"
+}</pre></td>
     </tr>
   </tbody>
 </table>
