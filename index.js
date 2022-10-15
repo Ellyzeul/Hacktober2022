@@ -7,6 +7,7 @@ const getXYOnMouveEvent = (event) => [
 const drawnPoints = []
 const contributors = {}
 const contributorsDisplayList = document.querySelector("#contributors-list")
+const pixelHovered = document.querySelector("#pixel-hovered")
 let clickLock = false
 
 document.querySelector("#theme-changer").addEventListener('click', event => {
@@ -25,7 +26,7 @@ const pushContributor = (contributorName) => {
     })
 }
 
-// Formas geométricas aqui
+// Formas geométricas aqui ///////////////////////////////
 const drawForms = {
   "line": (points, contributor) => {
     const { x0, y0, x1, y1 } = points
@@ -40,6 +41,7 @@ const drawForms = {
     ])
   }
 }
+//////////////////////////////////////////////////////////
 
 fetch("./points.json")
   .then(response => response.json())
@@ -118,6 +120,7 @@ const displayContributors = (pointContributors) => {
 canvas.addEventListener('mousemove', event => {
   if(clickLock) return
   const [x, y] = getXYOnMouveEvent(event)
+  pixelHovered.textContent = `(x: ${x}, y: ${y})`
   const pointContributors = drawnPoints.filter(point => 
     Math.abs(point.x - x) < 10 && 
     Math.abs(point.y - y) < 10
