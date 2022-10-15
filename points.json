@@ -1,9 +1,10 @@
 [
   {
-    "form": "circle",
-    "xc": 200,
-    "yc": 200,
-    "radius": 100,
+    "form": "line",
+    "x0": 2,
+    "y0": 2,
+    "x1": 10,
+    "y1": 10,
     "contributor": "Ellyzeul"
   }
 ]
