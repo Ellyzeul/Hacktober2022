@@ -58,6 +58,19 @@ const drawForms = {
       {x: x2, y: y2, contributor: contributor},
       {x: x2, y: y2, contributor: contributor},
     ])
+  },
+  "circle": (points, contributor) => {
+    const { xc, yc, radius } = points
+    ctx.beginPath()
+    ctx.arc(xc, yc, radius, 0, 2*Math.PI)
+    ctx.stroke()
+
+    drawnPoints.push(...[
+      {x: xc + radius, y: yc, contributor: contributor},
+      {x: xc - radius, y: yc, contributor: contributor},
+      {x: xc, y: yc + radius, contributor: contributor},
+      {x: xc, y: yc - radius, contributor: contributor},
+    ])
   }
 }
 //////////////////////////////////////////////////////////

@@ -48,6 +48,16 @@ Como já diriam desenvolvedores mais experientes: a melhor documentação é o p
   "contributor": "yingyangtongxue"
 }</pre></td>
     </tr>
+    <tr>
+      <td>Circulo</td>
+      <td><pre>{
+  "form": "circle",
+  "xc": 500,
+  "yc": 200,
+  "radius": 100,
+  "contributor": "leandrohl"
+}</pre></td>
+    </tr>
   </tbody>
 </table>
 
