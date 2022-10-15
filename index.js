@@ -44,10 +44,13 @@ const drawForms = {
 fetch("./points.json")
   .then(response => response.json())
   .then(response => {
+    const alreadyContributed = new Set()
     response.forEach(registry => {
       const { form, contributor, ...points } = registry
+      if(alreadyContributed.has(contributor)) return
       pushContributor(contributor)
       drawForms[form](points, contributor)
+      alreadyContributed.add(contributor)
     })
   })
 
