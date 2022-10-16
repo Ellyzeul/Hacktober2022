@@ -6,5 +6,12 @@
     "x1": 10,
     "y1": 10,
     "contributor": "Ellyzeul"
+  },
+  {
+    "form": "circle",
+    "xc": 500,
+    "yc": 200,
+    "radius": 100,
+    "contributor": "yingyangtongxue"
   }
 ]
