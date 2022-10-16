@@ -1,24 +1,31 @@
 [
-  {
-    "form": "line",
-    "x0": 2,
-    "y0": 2,
-    "x1": 10,
-    "y1": 10,
-    "contributor": "Ellyzeul"
-  },
-  {
-    "form": "circle",
-    "xc": 500,
-    "yc": 200,
-    "radius": 100,
-    "contributor": "yingyangtongxue"
-  },
+	{
+		"form": "line",
+		"x0": 2,
+		"y0": 2,
+		"x1": 10,
+		"y1": 10,
+		"contributor": "Ellyzeul"
+	},
+	{
+		"form": "circle",
+		"xc": 500,
+		"yc": 200,
+		"radius": 100,
+		"contributor": "yingyangtongxue"
+	},
   {
     "form": "circle",
     "xc": 400,
     "yc": 250,
     "radius": 50,
     "contributor": "MinorLess"
-  }
+  },
+	{
+		"form": "circle",
+		"xc": 600,
+		"yc": 250,
+		"radius": 50,
+		"contributor": "Daviiro"
+	}
 ]
