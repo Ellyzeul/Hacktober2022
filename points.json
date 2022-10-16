@@ -27,5 +27,17 @@
 		"yc": 250,
 		"radius": 50,
 		"contributor": "Daviiro"
-	}
+	},
+  {
+    "form": "quadrilateral",
+    "x0":600, 
+    "y0":260, 
+    "x1":800, 
+    "y1":260,  
+    "x2":800, 
+    "y2":460,
+    "x3":460, 
+    "y3":500,
+    "contributor": "Matheusmdr"
+  }
 ]
