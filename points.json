@@ -13,5 +13,12 @@
     "yc": 200,
     "radius": 100,
     "contributor": "yingyangtongxue"
+  },
+  {
+    "form": "circle",
+    "xc": 400,
+    "yc": 250,
+    "radius": 50,
+    "contributor": "MinorLess"
   }
 ]
