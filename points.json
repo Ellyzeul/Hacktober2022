@@ -39,5 +39,12 @@
     "x3":460, 
     "y3":500,
     "contributor": "Matheusmdr"
-  }
+  },
+	{
+		"form": "circle",
+		"xc": 460,
+		"yc": 170,
+		"radius": 30,
+		"contributor": "Igorjr19"
+	}
 ]
