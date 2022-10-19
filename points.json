@@ -46,5 +46,12 @@
 		"yc": 170,
 		"radius": 30,
 		"contributor": "Igorjr19"
+	},
+    {
+		"form": "circle",
+		"xc": 500,
+		"yc": 100,
+		"radius": 50,
+		"contributor": "Jao-Couto"
 	}
 ]
