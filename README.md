@@ -58,6 +58,19 @@ Como já diriam desenvolvedores mais experientes: a melhor documentação é o p
   "contributor": "leandrohl"
 }</pre></td>
     </tr>
+    <tr>
+      <td>Triângulo</td>
+      <td><pre>{
+  "form": "triangle",
+  "x1": 500,
+  "y1": 200,
+  "x2": 500,
+  "y2": 200,
+  "x3": 500,
+  "y3": 200,
+  "contributor": "D-Ono"
+}</pre></td>
+    </tr>
   </tbody>
 </table>
 
