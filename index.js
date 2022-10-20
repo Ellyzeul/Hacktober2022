@@ -1,8 +1,8 @@
 const canvas = document.querySelector("canvas")
 const ctx = canvas.getContext("2d")
 const getXYOnMouveEvent = (event) => [
-    event.clientX - canvas.offsetLeft,
-    event.clientY - canvas.offsetTop
+  event.clientX - canvas.offsetLeft, 
+  event.clientY - canvas.offsetTop
 ]
 const drawnPoints = []
 const contributors = {}
@@ -11,187 +11,177 @@ const pixelHovered = document.querySelector("#pixel-hovered")
 let clickLock = false
 
 document.querySelector("#theme-changer").addEventListener('click', event => {
-    const isLight = document.documentElement.className === "light"
+  const isLight = document.documentElement.className === "light"
 
-    document.documentElement.className = isLight ? "dark" : "light"
-    event.target.textContent = isLight ? "Escuro" : "Claro"
+  document.documentElement.className = isLight ? "dark" : "light"
+  event.target.textContent = isLight ? "Escuro" : "Claro"
 })
 
 // API do GitHub aqui ////////////////////////////////////
 const pushContributor = (contributorName) => {
-    fetch(`https://api.github.com/users/${contributorName}`)
-        .then(response => response.json())
-        .then(response => contributors[contributorName] = {
-            avatarThumbnail: response.avatar_url,
-            githubPage: response.html_url
-        })
+  fetch(`https://api.github.com/users/${contributorName}`)
+    .then(response => response.json())
+    .then(response => contributors[contributorName] = {
+      avatarThumbnail: response.avatar_url,
+      githubPage: response.html_url
+    })
 }
 //////////////////////////////////////////////////////////
 
 // Formas geométricas aqui ///////////////////////////////
 const drawForms = {
-    "line": (points, contributor) => {
-        const { x0, y0, x1, y1 } = points
-        ctx.beginPath()
-        ctx.moveTo(x0, y0)
-        ctx.lineTo(x1, y1)
-        ctx.stroke()
+  "line": (points, contributor) => {
+    const { x0, y0, x1, y1 } = points
+    ctx.beginPath()
+    ctx.moveTo(x0, y0)
+    ctx.lineTo(x1, y1)
+    ctx.stroke()
 
-        drawnPoints.push(...[
-            { x: x0, y: y0, contributor: contributor },
-            { x: x1, y: y1, contributor: contributor },
-        ])
-    },
-    "quadrilateral": (points, contributor) => {
-        const { x0, y0, x1, y1, x2, y2, x3, y3 } = points
-        ctx.beginPath()
-        ctx.moveTo(x0, y0)
-        ctx.lineTo(x1, y1)
-        ctx.lineTo(x2, y2)
-        ctx.lineTo(x3, y3)
-        ctx.lineTo(x0, y0)
-        ctx.stroke()
+    drawnPoints.push(...[
+      {x: x0, y: y0, contributor: contributor},
+      {x: x1, y: y1, contributor: contributor},
+    ])
+  },
+  "quadrilateral": (points, contributor) => {
+    const { x0, y0, x1, y1, x2, y2, x3, y3 } = points
+    ctx.beginPath()
+    ctx.moveTo(x0, y0)
+    ctx.lineTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.lineTo(x3, y3)
+    ctx.lineTo(x0, y0)
+    ctx.stroke()
 
-        drawnPoints.push(...[
-            { x: x0, y: y0, contributor: contributor },
-            { x: x1, y: y1, contributor: contributor },
-            { x: x2, y: y2, contributor: contributor },
-            { x: x2, y: y2, contributor: contributor },
-        ])
-    },
-    "circle": (points, contributor) => {
-        const { xc, yc, radius } = points
-        ctx.beginPath()
-        ctx.arc(xc, yc, radius, 0, 2 * Math.PI)
-        ctx.stroke()
+    drawnPoints.push(...[
+      {x: x0, y: y0, contributor: contributor},
+      {x: x1, y: y1, contributor: contributor},
+      {x: x2, y: y2, contributor: contributor},
+      {x: x2, y: y2, contributor: contributor},
+    ])
+  },
+  "circle": (points, contributor) => {
+    const { xc, yc, radius } = points
+    ctx.beginPath()
+    ctx.arc(xc, yc, radius, 0, 2*Math.PI)
+    ctx.stroke()
 
-        drawnPoints.push(...[
-            { x: xc + radius, y: yc, contributor: contributor },
-            { x: xc - radius, y: yc, contributor: contributor },
-            { x: xc, y: yc + radius, contributor: contributor },
-            { x: xc, y: yc - radius, contributor: contributor },
-        ])
-    },
-    "triangle": (points, contributor) => {
-        const { x1, y1, x2, y2, x3, y3 } = points;
-        ctx.beginPath();
-        ctx.moveTo(x1, y1)
-        ctx.lineTo(x2, y2)
-        ctx.lineTo(x3, y3)
-        ctx.lineTo(x1, y1)
-        ctx.stroke()
+    drawnPoints.push(...[
+      {x: xc + radius, y: yc, contributor: contributor},
+      {x: xc - radius, y: yc, contributor: contributor},
+      {x: xc, y: yc + radius, contributor: contributor},
+      {x: xc, y: yc - radius, contributor: contributor},
+    ])
+  },
+  "triangle": (points, contributor) => {
+    const { x1, y1, x2, y2, x3, y3 } = points;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.lineTo(x3, y3)
+    ctx.lineTo(x1, y1)
+    ctx.stroke()
 
-        drawnPoints.push(...[
-            { x: x1, y: y1, contributor: contributor },
-            { x: x2, y: y2, contributor: contributor },
-            { x: x3, y: y3, contributor: contributor },
-        ])
-    },
-    "ellipse": (points, contributor) => {
-        const { xc, yc, ySize, xSize } = points
-        ctx.beginPath()
-        ctx.ellipse(xc, yc, xSize, ySize, Math.PI / 4, 0, 2 * Math.PI)
-        ctx.stroke()
-
-        drawnPoints.push(...[
-            { x: xc, y: yc, contributor: contributor },
-        ])
-    },
+    drawnPoints.push(...[
+      { x: x1, y: y1, contributor: contributor },
+      { x: x2, y: y2, contributor: contributor },
+      { x: x3, y: y3, contributor: contributor },
+    ])
+  },
 }
 //////////////////////////////////////////////////////////
 
 fetch("./points.json")
-    .then(response => response.json())
-    .then(response => {
-        const alreadyContributed = new Set()
-        response.forEach(registry => {
-            const { form, contributor, ...points } = registry
-            if (alreadyContributed.has(contributor)) return
-            pushContributor(contributor)
-            drawForms[form](points, contributor)
-            alreadyContributed.add(contributor)
-        })
+  .then(response => response.json())
+  .then(response => {
+    const alreadyContributed = new Set()
+    response.forEach(registry => {
+      const { form, contributor, ...points } = registry
+      if(alreadyContributed.has(contributor)) return
+      pushContributor(contributor)
+      drawForms[form](points, contributor)
+      alreadyContributed.add(contributor)
     })
+  })
 
 const appendContributorOnList = (contributorName) => {
-    const contributor = contributors[contributorName]
-    const anchor = document.createElement('a')
-    const img = document.createElement('img')
-    const span = document.createElement('span')
+  const contributor = contributors[contributorName]
+  const anchor = document.createElement('a')
+  const img = document.createElement('img')
+  const span = document.createElement('span')
 
-    anchor.id = `user_${contributorName}`
-    anchor.className = "contributor-row-display"
-    anchor.href = contributor.githubPage
-    anchor.target = "_blank"
+  anchor.id = `user_${contributorName}`
+  anchor.className = "contributor-row-display"
+  anchor.href = contributor.githubPage
+  anchor.target = "_blank"
 
-    img.src = contributor.avatarThumbnail
-    anchor.appendChild(img)
+  img.src = contributor.avatarThumbnail
+  anchor.appendChild(img)
 
-    span.textContent = contributorName
-    anchor.appendChild(span)
+  span.textContent = contributorName
+  anchor.appendChild(span)
 
-    contributorsDisplayList.appendChild(anchor)
+  contributorsDisplayList.appendChild(anchor)
 }
 
 const removeContributorFromList = (unhoveredContributors) => {
-    const contributorsArray = Array.from(contributorsDisplayList.children)
-    if (unhoveredContributors === undefined) {
-        contributorsArray.forEach(contributor =>
-            contributorsDisplayList.removeChild(contributor)
-        )
-        return
-    }
+  const contributorsArray = Array.from(contributorsDisplayList.children)
+  if(unhoveredContributors === undefined) {
+    contributorsArray.forEach(contributor =>
+      contributorsDisplayList.removeChild(contributor)
+    )
+    return
+  }
 
-    unhoveredContributors.forEach(unhovered => {
-        contributorsDisplayList.removeChild(
-            contributorsArray
-                .find(contributor => contributor.id === `user_${unhovered}`)
-        )
-    })
+  unhoveredContributors.forEach(unhovered => {
+    contributorsDisplayList.removeChild(
+      contributorsArray
+        .find(contributor => contributor.id === `user_${unhovered}`)
+    )
+  })
 }
 
 const displayContributors = (pointContributors) => {
-    const contributorsHovered = []
-    pointContributors.forEach(contributorName => {
-        if (document.querySelector(`#user_${contributorName}`)) {
-            contributorsHovered.push(contributorName)
-            return
-        }
-
-        appendContributorOnList(contributorName)
-    })
-
-    const unhoveredContributors = []
-    if (contributorsHovered.length > 0) {
-        Array.from(contributorsDisplayList.children).forEach(child => {
-            const [_, contributorName] = child.id.split("user_", 2)
-
-            if (!contributorsHovered.find(contributor => contributor === contributorName)) {
-                unhoveredContributors.push(contributorName)
-            }
-        })
+  const contributorsHovered = []
+  pointContributors.forEach(contributorName => {
+    if(document.querySelector(`#user_${contributorName}`)) {
+      contributorsHovered.push(contributorName)
+      return
     }
-    removeContributorFromList(unhoveredContributors)
+
+    appendContributorOnList(contributorName)
+  })
+
+  const unhoveredContributors = []
+  if(contributorsHovered.length > 0) {
+    Array.from(contributorsDisplayList.children).forEach(child => {
+      const [_, contributorName] = child.id.split("user_", 2)
+
+      if(!contributorsHovered.find(contributor => contributor === contributorName)) {
+        unhoveredContributors.push(contributorName)
+      }
+    })
+  }
+  removeContributorFromList(unhoveredContributors)
 }
 
 canvas.addEventListener('mousemove', event => {
-    if (clickLock) return
-    const [x, y] = getXYOnMouveEvent(event)
-    pixelHovered.textContent = `(x: ${x}, y: ${y})`
-    const pointContributors = drawnPoints.filter(point =>
-        Math.abs(point.x - x) < 10 &&
-        Math.abs(point.y - y) < 10
-    )
-    if (pointContributors.length === 0) return removeContributorFromList()
+  if(clickLock) return
+  const [x, y] = getXYOnMouveEvent(event)
+  pixelHovered.textContent = `(x: ${x}, y: ${y})`
+  const pointContributors = drawnPoints.filter(point => 
+    Math.abs(point.x - x) < 10 && 
+    Math.abs(point.y - y) < 10
+  )
+  if(pointContributors.length === 0) return removeContributorFromList()
 
-    displayContributors(
-        pointContributors
-            .map(pointContributor => pointContributor.contributor)
-    )
+  displayContributors(
+    pointContributors
+      .map(pointContributor => pointContributor.contributor)
+  )
 })
 
 canvas.addEventListener('click', () => {
-    if (contributorsDisplayList.children.length === 0) return
+  if(contributorsDisplayList.children.length === 0) return
 
-    clickLock = !clickLock
+  clickLock = !clickLock
 })
