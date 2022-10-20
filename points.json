@@ -56,5 +56,12 @@
 		"x3": 430,
 		"y3": 290,
 		"contributor": "D-Ono"
-	}
+	},
+  {
+		"form": "circle",
+		"xc": 500,
+		"yc": 100,
+		"radius": 50,
+		"contributor": "Jao-Couto"
+  }
 ]
