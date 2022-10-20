@@ -1,5 +1,5 @@
 # Hacktober2022
-Respositório para commits duante a Hacktober22
+Respositório para commits duante a Hacktober2022
 ___
 
 ## Como funciona a aplicação?
