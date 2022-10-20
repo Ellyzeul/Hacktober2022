@@ -58,10 +58,13 @@
 		"contributor": "D-Ono"
 	},
   {
-		"form": "circle",
+		"form": "ellipse",
 		"xc": 500,
 		"yc": 100,
+        "ySize": 30,
+        "xSize": 40,
 		"radius": 50,
 		"contributor": "Jao-Couto"
   }
+  
 ]
