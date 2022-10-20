@@ -46,5 +46,15 @@
 		"yc": 170,
 		"radius": 30,
 		"contributor": "Igorjr19"
+	},
+	{
+		"form": "triangle",
+		"x1": 360,
+		"y1": 360,
+		"x2": 500,
+		"y2": 360,
+		"x3": 430,
+		"y3": 290,
+		"contributor": "D-Ono"
 	}
 ]

@@ -71,7 +71,22 @@ const drawForms = {
       {x: xc, y: yc + radius, contributor: contributor},
       {x: xc, y: yc - radius, contributor: contributor},
     ])
-  }
+  },
+  "triangle": (points, contributor) => {
+    const { x1, y1, x2, y2, x3, y3 } = points;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.lineTo(x3, y3)
+    ctx.lineTo(x1, y1)
+    ctx.stroke()
+
+    drawnPoints.push(...[
+      { x: x1, y: y1, contributor: contributor },
+      { x: x2, y: y2, contributor: contributor },
+      { x: x3, y: y3, contributor: contributor },
+    ])
+  },
 }
 //////////////////////////////////////////////////////////
 
