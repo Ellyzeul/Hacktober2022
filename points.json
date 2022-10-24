@@ -75,6 +75,16 @@
 	"x3": 430,
 	"y3": 430,
 	"contributor": "henriquequintana"
-}
+},
+{
+		"form": "triangle",
+		"x1": 300,
+		"y1": 300,
+		"x2": 500,
+		"y2": 300,
+		"x3": 340,
+		"y3": 310,
+		"contributor": "lukastorresu"
+	}
 
 ]
