@@ -87,7 +87,7 @@ Em suma:
  - docs: tudo o que for relacionado à documentação.
  - chore: manutenção regular do código. (Você também pode usar emojis para representar os tipos de commit).
 
-Ex.: `feat: adição de nova linha ao canvas`
+Ex.: `feat: adição de nova linha ao canvas`, `feat: adição de nova 'nome da forma' ao canvas`.
 
 ## Formas de contribuir
 A principal forma de contribuir é justamente adicionando formas ao canvas, porém há mais métodos e eles estão descritos na seção de [issues](https://github.com/Ellyzeul/Hacktober2022/issues)
