@@ -92,6 +92,19 @@
 	"yc": 260,
 	"radius": 70,
 	"contributor": "lucasgstumpf"
-  }
+  },
+{
+    "form": "quadrilateral",
+    "x0":600, 
+    "y0":110, 
+    "x1":600, 
+    "y1":240,  
+    "x2":800, 
+    "y2":240,
+    "x3":800, 
+    "y3":110,
+    "contributor": "MillenaG30"
+}
+		
 
 ]
